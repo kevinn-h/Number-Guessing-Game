@@ -1,28 +1,26 @@
-condition = False
+""" condition = False
 while condition:
-    print("verity")
+    print("verity") """
 
 minimum_number = 1
-maximum_number = 10
+maximum_number = 11
 
 import random
 
 n = random.randint(minimum_number, maximum_number)
-
+guess = 0
 while True:
-    z = input("Try to guess my number! Enter 'exit' to quit: ")
-    if z.lower() == "exit":
+    z = int(input("Try to guess my number! Enter 'exit' to quit: "))
+    if z == "exit":
         break
-    try:
-        guess = int(z)
-    except ValueError:
-        print("Please enter a valid number or 'exit'.")
-        continue
-
-    if guess > n:
+    elif z > n:
+        print("lower")
+        guess = guess+1
+    elif z < n:
         print("greater")
-    elif guess < n:
-        print("less")
-    else:
-        print("You guessed it!")
+        guess = guess+1
+    elif z == n:
+        print("correct")
+        print(f" you got it correct after{guess} guesses!")
         break
+
